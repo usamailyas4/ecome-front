@@ -71,7 +71,7 @@
                                             class="flex justify-between items-center bg-white p-3 rounded border sm:gap-0 gap-3">
 
                                             <div class="flex items-center space-x-3 w-full sm:w-auto">
-                                                <img :src="'http://localhost:8080/api/v1/product/product-photo/' + item.product._id"
+                                                <img :src="imgUrl + item.product._id"
                                                     class="w-12 h-12 rounded border" />
 
                                                 <div>
@@ -110,7 +110,7 @@ export default{
         }
     },
     computed:{
-        ...mapState(['Loader']),
+        ...mapState(['Loader', 'imgUrl']),
         isLoader: {
             get() {
                 return this.Loader

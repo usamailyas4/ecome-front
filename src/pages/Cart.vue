@@ -26,7 +26,7 @@
                             </div>
                             </td>
                             <td class="px-4 py-3">
-                            <img :src="'http://localhost:8080/api/v1/product/product-photo/' + record.item._id" alt="product image" class="w-20 h-20 object-cover rounded-lg border border-gray-200" />
+                            <img :src="imgUrl + record.item._id" alt="product image" class="w-20 h-20 object-cover rounded-lg border border-gray-200" />
                             </td>
                             <td class="px-4 py-3 font-medium text-normal">{{ record.item.name }}</td>
                             <td class="px-4 py-3 text-normal">$ {{ record.item.price }}</td>
@@ -84,7 +84,7 @@ export default{
         }
     },
     computed:{
-        ...mapState(['cartItems', 'login', 'Loader']),
+        ...mapState(['cartItems', 'login', 'Loader', 'imgUrl']),
         isLoader: {
             get() {
                 return this.Loader

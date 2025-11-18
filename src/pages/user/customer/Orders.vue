@@ -25,7 +25,7 @@
             <div class="space-y-3">
                 <div v-for="item in order.products" class="flex flex-col md:flex-row justify-between items-center bg-gray-50 p-3 rounded-lg">
                     <div class="flex items-center space-x-3">
-                        <img :src="'http://localhost:8080/api/v1/product/product-photo/' + item.product._id"
+                        <img :src="imgUrl + item.product._id"
                             class="w-14 h-14 rounded object-cover border">
                         <div>
                             <p class="font-medium text-normal">{{ item.product.name }}</p>
@@ -52,7 +52,7 @@ export default{
         }
     },
     computed:{
-        ...mapState(['Loader']),
+        ...mapState(['Loader', 'imgUrl']),
         isLoader: {
             get() {
                 return this.Loader

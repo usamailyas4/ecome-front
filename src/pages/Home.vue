@@ -48,7 +48,7 @@
                 <div v-if="filteredProducts.length > 0" v-for="(product,index) in filteredProducts.slice(0, count)" :key="index" class="bg-light rounded-2xl h-fit shadow-md overflow-hidden border border-light hover:shadow-lg">
                     <router-link :to="`/product/${product.slug}`">
                         <div class="relative z-10">
-                            <img :src="'http://localhost:8080/api/v1/product/product-photo/'+product._id + '?t=' + Date.now()" alt="Product Image" class="w-full h-48 object-cover"/>
+                            <img :src="imgUrl+product._id + '?t=' + Date.now()" alt="Product Image" class="w-full h-48 object-cover"/>
                             <span class="absolute top-3 left-3 bg-secondary text-light text-xs font-semibold px-2 py-1 rounded-full shadow-sm">{{product.category.name}}</span>
                         </div>
                     </router-link>
@@ -93,7 +93,7 @@ export default{
         }
     },
     computed:{
-        ...mapState(['categories', 'products', 'productCount', 'Loader']),
+        ...mapState(['categories', 'products', 'productCount', 'Loader', 'imgUrl']),
         isLoader: {
             get() {
                 return this.Loader

@@ -58,7 +58,7 @@ export default{
         }
     },
     computed:{
-        ...mapState(['categories', 'Loader']),
+        ...mapState(['categories', 'Loader', 'imgUrl']),
         isLoader: {
             get() {
                 return this.Loader
@@ -158,7 +158,7 @@ export default{
                             category:product.category._id,
                             shipping:product.shipping
                         }
-                        this.preview = 'http://localhost:8080/api/v1/product/product-photo/'+product._id
+                        this.preview = this.imgUrl+product._id
                         this.isUpdate = true
                         this.targetId = product._id
                         this.isLoader = false

@@ -2,7 +2,7 @@
     <div class="grid gap-6 sm:grid-cols-2 md:grid-cols-3 lg-grid-cols-4 mx-auto">
         <div v-if="productCount > 0" v-for="(product,index) in products" :key="index" class="bg-light rounded-2xl shadow-md overflow-hidden border border-light hover:shadow-lg">
             <div class="relative z-10">
-                <img :src="'http://localhost:8080/api/v1/product/product-photo/'+product._id + '?t=' + Date.now()" alt="Product Image" class="w-full h-48 object-cover"/>
+                <img :src="imgUrl+product._id + '?t=' + Date.now()" alt="Product Image" class="w-full h-48 object-cover"/>
                 <span class="absolute top-3 left-3 bg-secondary text-light text-xs font-semibold px-2 py-1 rounded-full shadow-sm">{{product.category.name}}</span>
                 <div class="absolute top-3 right-3 flex gap-2">
                     <button class="bg-white/80 backdrop-blur px-2 py-1 rounded hover:scale-105" @click="$router.push('/admin/dashboard/products/'+product.slug)">✏️</button>
@@ -45,7 +45,7 @@ export default{
         }
     },
     computed:{
-        ...mapState(['Loader', 'products', 'productCount']),
+        ...mapState(['Loader', 'products', 'productCount', 'imgUrl']),
         isLoader: {
             get() {
                 return this.Loader

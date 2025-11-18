@@ -3,7 +3,7 @@
         <div class="max-w-5xl w-full bg-white rounded-2xl shadow-sm overflow-hidden">
             <div v-if="product" class="grid grid-cols-1 md:grid-cols-2">
                 <div class="max-h-[500px] min-h-400">
-                    <img :src="'http://localhost:8080/api/v1/product/product-photo/'+product._id" alt="Product Image" class="w-full h-full object-cover"/>
+                    <img :src="imgUrl+product._id" alt="Product Image" class="w-full h-full object-cover"/>
                 </div>
 
                 <div class="p-8 flex flex-col justify-between">
@@ -32,7 +32,7 @@
                         <div v-if="relatedProducts" v-for="(product,index) in relatedProducts" :key="index" class="bg-light rounded-2xl h-fit shadow-md overflow-hidden border border-light hover:shadow-lg flex-shrink-0 w-60 sm:w-64 md:w-60 lg:w-72">
                             <router-link :to="`/product/${product.slug}`">
                                 <div class="relative z-10">
-                                    <img :src="'http://localhost:8080/api/v1/product/product-photo/'+product._id + '?t=' + Date.now()" alt="Product Image" class="w-full h-48 object-cover"/>
+                                    <img :src="imgUrl+product._id + '?t=' + Date.now()" alt="Product Image" class="w-full h-48 object-cover"/>
                                     <span class="absolute top-3 left-3 bg-secondary text-light text-xs font-semibold px-2 py-1 rounded-full shadow-sm">{{product.category.name}}</span>
                                 </div>
                             </router-link>
@@ -101,7 +101,7 @@ export default{
         )
     },
     computed:{
-        ...mapState(['Loader']),
+        ...mapState(['Loader', 'imgUrl']),
         isLoader: {
             get() {
                 return this.Loader
