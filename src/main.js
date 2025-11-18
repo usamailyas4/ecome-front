@@ -6,7 +6,7 @@ import store from './store'
 import router from './router'
 import axios from 'axios'
 
-axios.defaults.baseURL = "http://localhost:8080/api/v1"
+axios.defaults.baseURL = "https://ecommerce-app-production-1aea.up.railway.app//api/v1"
 
 const app = createApp(App)
 
