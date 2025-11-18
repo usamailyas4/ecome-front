@@ -13,7 +13,7 @@ const store = createStore({
             productCount:0,
             cartItems:JSON.parse(localStorage.getItem('cart')) || [],
             cartCount:JSON.parse(localStorage.getItem('cartCount')) || 0,
-            imgUrl: 'https://ecommerce-app-production-1aea.up.railway.app/api/v1/product/product-photo/'
+            imgUrl: '/api/v1/product/product-photo/'
         }
     },
     mutations: {
