@@ -20,7 +20,7 @@
 
 <script>
 import { mapState } from 'vuex/dist/vuex.cjs.js';
-import SideBar from '../../../components/SideBar.vue';
+import SideBar from '../../../components/Sidebar.vue';
 
 export default{
     name: "Dashboard",
