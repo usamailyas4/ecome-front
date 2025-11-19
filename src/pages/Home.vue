@@ -40,7 +40,7 @@
                         <span>Above $120</span>
                     </label>
                 </div>
-                <button type="button" class="primary w-[100%]" @click="[filterCategories=[], selectedRange=null]">Reset</button>
+                <button type="button" class="primary w-[100%]" @click="[filterCategories=[], selectedRange=null, byTitle='']">Reset</button>
             </div>
         </div>
         <div class="w-[100%] md:w-[80%] px-8 py-4">
